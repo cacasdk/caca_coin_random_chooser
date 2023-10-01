@@ -8,9 +8,9 @@ class CoinRandomChooser5:
 
     @property
     def make_student_number(self):
-        output: int = 0
+        output = 0
         for i in range(0, 5):
-            if self.coin_list[i] == '1':
+            if self.coin_list[i] == 1:
                 output += 2 ** (i + 1)
         return output
 
