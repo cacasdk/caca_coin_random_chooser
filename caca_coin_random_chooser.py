@@ -1,6 +1,7 @@
 import json
 
-
+class CacaError(IndexError):
+    pass
 class CoinRandomChooser5:
     def __init__(self, roster_file_path, coin_list):
         self.roster_file_path = roster_file_path
@@ -10,7 +11,7 @@ class CoinRandomChooser5:
     def make_student_number(self):
         output = 0
         for i in range(0, 5):
-            if self.coin_list[i] == 1:
+            if self.coin_list[i] != 0:
                 output += 2 ** (i + 1)
         return output
 
@@ -21,7 +22,10 @@ class CoinRandomChooser5:
         return output
 
     def chooser(self):
-        output = self.read_roster[self.make_student_number]
+        try:
+            output = self.read_roster[self.make_student_number]
+        except IndexError:
+            raise CacaError("Opps!The roster doesn't has that student!")
         return output
 
 

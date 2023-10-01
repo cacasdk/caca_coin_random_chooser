@@ -20,8 +20,8 @@ def caca():
     for i in range(0, 5):
         a = input("please input the {number} coin:".format(number=i + 1))
         coin_list[i] = a
-    caca = CoinRandomChooser5(roster_file_path="roster.json", coin_list=coin_list)
-    output = caca.chooser()
+    caca_main = CoinRandomChooser5(roster_file_path="roster.json", coin_list=coin_list)
+    output = caca_main.chooser()
     print("Today's lucky dog is {name}!".format(name=output))
 
 
